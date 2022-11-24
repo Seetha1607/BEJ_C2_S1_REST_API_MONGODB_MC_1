@@ -10,6 +10,6 @@ package com.example.exception;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-@ResponseStatus(code = HttpStatus.CONFLICT, reason = "Track with Specific code already Exists. Try some other code!")
+@ResponseStatus(code = HttpStatus.CONFLICT, reason = "Track with Specific code doesn't Exists. Try some other code!")
 public class TrackNotExists extends Exception {
 }
