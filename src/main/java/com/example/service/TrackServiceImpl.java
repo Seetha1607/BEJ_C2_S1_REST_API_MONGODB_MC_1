@@ -26,16 +26,17 @@ public class TrackServiceImpl implements ITrackService {
 
     @Override
     public Track saveTrackDetails(Track track) {
-        return null;
+        return trackRepository.save(track);
     }
 
     @Override
     public List<Track> fetchAllTrack() {
-        return null;
+        return trackRepository.findAll();
     }
 
     @Override
     public boolean deleteTrack(int trackId) {
-        return false;
+        trackRepository.deleteById(trackId);
+        return true;
     }
 }
