@@ -8,6 +8,8 @@
 package com.example.service;
 
 import com.example.domain.Track;
+import com.example.exception.TrackExistsAlready;
+import com.example.exception.TrackNotExists;
 import com.example.repository.TrackRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +27,10 @@ public class TrackServiceImpl implements ITrackService {
     }
 
     @Override
-    public Track saveTrackDetails(Track track) {
+    public Track saveTrackDetails(Track track) throws TrackExistsAlready {
+        if (trackRepository.findById(track.getTrackId()).isPresent()) {
+            throw new TrackExistsAlready();
+        }
         return trackRepository.save(track);
     }
 
@@ -35,7 +40,10 @@ public class TrackServiceImpl implements ITrackService {
     }
 
     @Override
-    public boolean deleteTrack(int trackId) {
+    public boolean deleteTrack(int trackId) throws TrackNotExists {
+        if (trackRepository.findById(trackId).isEmpty()) {
+            throw new TrackNotExists();
+        }
         trackRepository.deleteById(trackId);
         return true;
     }
