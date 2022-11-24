@@ -18,12 +18,12 @@ public class Track {
     private int trackId;
     private String trackName;
     private float trackRating;
-    private Track trackArtist;
+    private Artist trackArtist;
 
     public Track() {
     }
 
-    public Track(int trackId, String trackName, float trackRating, Track trackArtist) {
+    public Track(int trackId, String trackName, float trackRating, Artist trackArtist) {
         this.trackId = trackId;
         this.trackName = trackName;
         this.trackRating = trackRating;
@@ -54,11 +54,11 @@ public class Track {
         this.trackRating = trackRating;
     }
 
-    public Track getTrackArtist() {
+    public Artist getTrackArtist() {
         return trackArtist;
     }
 
-    public void setTrackArtist(Track trackArtist) {
+    public void setTrackArtist(Artist trackArtist) {
         this.trackArtist = trackArtist;
     }
 
