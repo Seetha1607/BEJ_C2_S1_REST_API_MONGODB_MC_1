@@ -39,4 +39,14 @@ public class TrackServiceImpl implements ITrackService {
         trackRepository.deleteById(trackId);
         return true;
     }
+
+    @Override
+    public List<Track> fetchTrackRatingGreaterThan(float trackRating) {
+        return trackRepository.findAllTrackByTrackRating(trackRating);
+    }
+
+    @Override
+    public List<Track> fetchTrackByArtistName(String artistName) {
+        return trackRepository.findByArtistName(artistName);
+    }
 }

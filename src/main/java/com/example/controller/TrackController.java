@@ -38,4 +38,14 @@ public class TrackController {
     public ResponseEntity<?> deleteTrack(@PathVariable int trackId) {
         return new ResponseEntity<>(iTrackService.deleteTrack(trackId), HttpStatus.OK);
     }
+
+    @GetMapping("/fetchTrackByTrackRatingGreaterThan/{trackRating}")
+    public ResponseEntity<?> fetchTrackByTrackRatingGreaterThan(@PathVariable float trackRating) {
+        return new ResponseEntity<>(iTrackService.fetchTrackRatingGreaterThan(trackRating), HttpStatus.OK);
+    }
+
+    @GetMapping("/fetchTrackByArtistName/{artistName}")
+    public ResponseEntity<?> fetchTrackByArtistName(@PathVariable String artistName) {
+        return new ResponseEntity<>(iTrackService.fetchTrackByArtistName(artistName), HttpStatus.ACCEPTED);
+    }
 }
