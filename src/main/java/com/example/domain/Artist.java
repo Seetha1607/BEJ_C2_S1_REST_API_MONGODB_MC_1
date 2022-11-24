@@ -8,4 +8,7 @@
 package com.example.domain;
 
 public class Artist {
+    private int artistId;
+    private String artistName;
+
 }
